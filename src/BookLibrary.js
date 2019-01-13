@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import Shelf from './Shelf'
 
 class BookLibrary extends Component
 {
@@ -15,7 +16,8 @@ class BookLibrary extends Component
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
-                    <ol className="books-grid">
+                   <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'currentlyReading')}/>
+                    {/* <ol className="books-grid">
                       <li>
                         <div className="book">
                           <div className="book-top">
@@ -52,13 +54,14 @@ class BookLibrary extends Component
                           <div className="book-authors">Orson Scott Card</div>
                         </div>
                       </li>
-                    </ol>
+                    </ol> */}
                   </div>
                 </div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
-                    <ol className="books-grid">
+                  <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'wantToRead')}/>
+                    {/* <ol className="books-grid">
                       <li>
                         <div className="book">
                           <div className="book-top">
@@ -95,13 +98,14 @@ class BookLibrary extends Component
                           <div className="book-authors">J.K. Rowling</div>
                         </div>
                       </li>
-                    </ol>
+                    </ol> */}
                   </div>
                 </div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
-                    <ol className="books-grid">
+                  <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'read')}/>
+                    {/* <ol className="books-grid">
                       <li>
                         <div className="book">
                           <div className="book-top">
@@ -156,7 +160,7 @@ class BookLibrary extends Component
                           <div className="book-authors">Mark Twain</div>
                         </div>
                       </li>
-                    </ol>
+                    </ol> */}
                   </div>
                 </div>
               </div>
