@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css'
 import SearchPage from './SearchPage.js'
-import {Link} from 'react-router-dom'
 import {Route} from 'react-router-dom'
 import BookLibrary from './BookLibrary.js'
 import * as BooksAPI from './BooksAPI'
@@ -23,7 +22,8 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Route exact path='/' component = {BookLibrary}></Route>
+        {/* <Route exact path='/' component = {BookLibrary}></Route> */}
+        <Route exact path='/' component = {() => (<BookLibrary books = {this.state.books} /> )}></Route>
         <Route exact path='/search' component={SearchPage}></Route>
       </div>
     )
