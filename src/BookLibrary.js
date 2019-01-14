@@ -16,20 +16,20 @@ class BookLibrary extends Component
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
-                   <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'currentlyReading')} updateFunc = {this.props.update} />
+                   <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'currentlyReading')} updateFunc = {this.props.update} shelf ='currentlyReading'/>
                   </div>
                 </div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
-                  <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'wantToRead') } updateFunc = {this.props.update}/>
+                  <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'wantToRead') } updateFunc = {this.props.update} shelf ='wantToRead'/>
 
                   </div>
                 </div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
-                  <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'read')} updateFunc = {this.props.update}/>
+                  <Shelf filteredBooks = {this.props.books.filter(booktype => booktype.shelf === 'read')} updateFunc = {this.props.update} shelf ='read'/>
                   </div>
                 </div>
               </div>
