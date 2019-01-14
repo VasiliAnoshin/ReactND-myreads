@@ -14,6 +14,7 @@ class SearchPage extends Component
             //console.log(event.target.value)
             BooksAPI.search(event.target.value).then((newBooks) =>{
                 if(!newBooks.error){
+                    console.log(newBooks)
                     this.setState(() => ({
                         books:newBooks
                 }))}else{
@@ -23,6 +24,17 @@ class SearchPage extends Component
         })
         }else {
             this.setState({books:[]})
+        }
+    }
+
+    checkIfExistShelf = (book) => {
+        // console.log(book)
+        // console.log(this.props.books)
+        const bookExist = this.props.books.find(res => res.id === book.id)
+        if(bookExist){
+            return bookExist.shelf;
+        }else{
+            return 'none';
         }
     }
 
@@ -41,7 +53,9 @@ class SearchPage extends Component
                     <ol className="books-grid">
                     {this.state.books.map((book) =>(
                         <li key= {book.id}>
-                            <Book book ={book} shelf = {book.shelf} updateFunc = {this.props.update}/>
+                            <Book book ={book} 
+                            shelf = {this.checkIfExistShelf(book)}
+                            updateFunc = {this.props.update}/>
                         </li>
                     ))}
                     </ol>
