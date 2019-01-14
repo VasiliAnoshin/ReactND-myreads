@@ -14,7 +14,7 @@ class SearchPage extends Component
             //console.log(event.target.value)
             BooksAPI.search(event.target.value).then((newBooks) =>{
                 if(!newBooks.error){
-                    console.log(newBooks)
+                    //console.log(newBooks)
                     this.setState(() => ({
                         books:newBooks
                 }))}else{
