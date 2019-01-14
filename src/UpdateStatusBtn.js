@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 
 class UpdateStatusBtn extends Component{
+    
     handleChange= book =>(event) =>{
         //console.log(event.target.value)
         //console.log(book)
         // alert(event.target.value)
         this.props.updateFunc(book, event.target.value)
       }
-      
+
     render(){
         return(
             <div className="book-shelf-changer">
