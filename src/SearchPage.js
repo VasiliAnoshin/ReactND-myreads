@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book.js'
+import { NavLink } from 'react-router-dom'
 
 class SearchPage extends Component
 {
@@ -21,16 +22,14 @@ class SearchPage extends Component
             this.setState({books:[]})
         }
     }
-
-    openMainPage = () => {
-        this.props.history.push('/');
-    };
-    
     render(){
     return(
         <div className="search-books">
             <div className="search-books-bar">
-                <button className="close-search" onClick={this.openMainPage}>Close</button>
+            <NavLink to='/' className="search">
+                <button className="close-search">Close</button>
+            </NavLink>
+               
                 <div className="search-books-input-wrapper">
                     <input type="text" placeholder="Search by title or author" onChange={this.handleInputChange}/>
                 </div>
@@ -39,7 +38,7 @@ class SearchPage extends Component
                 <ol className="books-grid">
                 {this.state.books.map((book) =>(
                     <li key= {book.id}>
-                        <Book book ={book} shelf = {book.shelf} updateFunc = {this.props.updateFunc}/>
+                        <Book book ={book} shelf = {book.shelf} updateFunc = {this.props.update}/>
                     </li>
                 ))}
                 </ol>
